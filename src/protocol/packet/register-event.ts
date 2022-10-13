@@ -1,0 +1,23 @@
+import { EventName as BrowserEventName } from '../browser/event-name';
+import { EventName } from '../event-name';
+import { MethodName } from '../method-name';
+import { EventName as PlayerEventName } from '../player/event-name';
+import { GenericSend } from './generic-send';
+
+export class RegisterEvent extends GenericSend {
+    method = MethodName.RegisterEvent;
+    instanceName?: string;
+    ev: EventName | BrowserEventName | PlayerEventName;
+    handle: string;
+
+    constructor(
+        handle: string,
+        event: EventName | BrowserEventName | PlayerEventName,
+        instanceName?: string,
+    ) {
+        super();
+        this.handle = handle;
+        this.instanceName = instanceName;
+        this.ev = event;
+    }
+}

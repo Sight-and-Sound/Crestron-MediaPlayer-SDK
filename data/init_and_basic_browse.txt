@@ -1,0 +1,299 @@
+>>> {"id":93857,"params":{"uuid":"1EEC064A-1B27-2679-D10B-60FC97D54EBB","maxPacketSize":65535,"type":"cip-direct/json-rpc","format":"JSON","ver":"1.0","name":"Smart Graphics=2.15.08.23_api=29","encoding":"UTF-8"},"jsonrpc":"
+>>> 2.0","method":"Crpc.Register"}
+<<< {"jsonrpc":"2.0","result":{"ver":"2.0","name":"DM-NAX-8ZSA","uuid":"0829abc9-974f-4e71-a793-866657c6eaa4","connectionslist":[{"type":"symbol/json-rpc","ip":"192.168.33.254","subnet":"255.255.255.0","port":41794,"slot":"5.1.1","join":55},{"type":"cip-direct/json-rpc","ip":"192.168.33.254","subnet":"255.255.255.0","port":50011}],"maxPacketSize":1048576,"encoding":"UTF-8","format":"JSON"},"error":null,"id":93857}
+
+>>> {"id":93858,"params":null,"jsonrpc":"2.0","method":"Crpc.GetObjects"}
+<<< {"jsonrpc":"2.0","result":{"objects":{"object":[{"@category":"Media","name":"MediaPlayerMenu","instancename":"MediaPlayerMenu1","interfaces":["IMenu"],"uuid":"5880ccad-4741-42fd-b1b6-03d995586ea2"},{"@category":"Media","name":"MediaPlayer","instancename":"MediaPlayer1","interfaces":["IMediaPlayer"],"uuid":"9c09b9f7-40bb-4f16-86fd-255231049690"}]}},"error":null,"id":93858}
+
+>>> {"id":93859,"params":{"handle":"sg","ev":"ObjectDirectoryChanged"},"jsonrpc":"2.0","method":"Crpc.RegisterEvent"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93859}
+
+
+EVERYTHING BELOW SEEMS ASYNC
+
+
+>>> {"id":93860,"params":{"propName":"PropertiesSupported"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"PropertiesSupported":["Instance","Language","ActionsSupported","ActionsAvailable","PropertiesSupported","RewindSpeed","FfwdSpeed","ProviderName","PlayerState","PlayerIcon","PlayerIconURL","PlayerName","StreamState","MediaType","TextLines","AlbumArt","AlbumArtUrl","AlbumArtUrlNAT","StationName","Album","Genre","Artist","Title","ProgressBar","ElapsedSec","TrackSec","TrackNum","TrackCnt","NextTitle","MediaReady","ShuffleState","RepeatState","StatusMsg","Busy","Rating","SelectedId"]},"error":null,"id":93860}
+
+>>> {"id":93861,"params":{"uuid":"1EEC064A-1B27-2679-D10B-60FC97D54EBB"},"jsonrpc":"2.0","method":"MediaPlayer1.GetMenu"}
+<<< {"jsonrpc":"2.0","result":{"instanceName":"MediaPlayerMenu1"},"error":null,"id":93861}
+
+>>> {"id":93862,"params":{"handle":"sg","ev":"BusyChanged"},"jsonrpc":"2.0","method":"MediaPlayer1.RegisterEvent"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93862}
+
+>>> {"id":93863,"params":{"handle":"sg","ev":"StatusMsgChanged"},"jsonrpc":"2.0","method":"MediaPlayer1.RegisterEvent"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93863}
+
+>>> {"id":93864,"params":{"handle":"sg","ev":"StateChangedByBrowseContext"},"jsonrpc":"2.0","method":"MediaPlayer1.RegisterEvent"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93864}
+
+>>> {"id":93865,"params":{"handle":"sg","ev":"StateChanged"},"jsonrpc":"2.0","method":"MediaPlayer1.RegisterEvent"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93865}
+
+>>> {"id":93866,"params":{"propName":"TextLines"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TextLines":["KINK","Beetlebum","Blur"]},"error":null,"id":93866}
+
+>>> {"id":93867,"params":{"propName":"ActionsSupported"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ActionsSupported":["Play","Pause","NextTrack","PreviousTrack","NextCategory","PreviousCategory","ThumbsUp","ThumbsDown","Rewind","Ffwd","Shuffle","Repeat","Star","Seek","GetMenu","StatusMsgResponse"]},"error":null,"id":93867}
+
+>>> {"id":93868,"params":{"propName":"ActionsAvailable"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ActionsAvailable":["GetMenu","StatusMsgResponse","VolumeUp","VolumeDown","VolumeControl","ProgressInfo","Loop","Pause"]},"error":null,"id":93868}
+
+>>> {"id":93869,"params":{"propName":"ProgressBar"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ProgressBar":false},"error":null,"id":93869}
+
+>>> {"id":93870,"params":{"propName":"ElapsedSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ElapsedSec":1},"error":null,"id":93870}
+
+>>> {"id":93871,"params":{"propName":"TrackSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TrackSec":-1},"error":null,"id":93871}
+
+>>> {"id":93887,"params":{"handle":"sg","ev":"BusyChanged"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.RegisterEvent"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93887}
+
+>>> {"id":93888,"params":{"handle":"sg","ev":"ClearChanged"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.RegisterEvent"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93888}
+
+>>> {"id":93889,"params":{"handle":"sg","ev":"ListChanged"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.RegisterEvent"}
+<<< {"jsonrpc":"2.0","error":{"code":-32006,"message":"event not found","data":null},"id":93889}
+
+>>> {"id":93890,"params":{"handle":"sg","ev":"StateChanged"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.RegisterEvent"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93890}
+
+>>> {"id":93891,"params":{"handle":"sg","ev":"StatusMsgMenuChanged"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.RegisterEvent"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93891}
+
+>>> {"id":93872,"params":{"propName":"StreamState"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"StreamState":"streaming"},"error":null,"id":93872}
+
+>>> {"id":93873,"params":{"propName":"TrackNum"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TrackNum":0},"error":null,"id":93873}
+
+>>> {"id":93874,"params":{"propName":"TrackCnt"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TrackCnt":0},"error":null,"id":93874}
+
+>>> {"id":93875,"params":{"propName":"PlayerState"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"PlayerState":"playing"},"error":null,"id":93875}
+
+>>> {"id":93876,"params":{"propName":"PlayerIcon"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"PlayerIcon":0},"error":null,"id":93876}
+
+>>> {"id":93877,"params":{"propName":"PlayerName"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"PlayerName":"Internet Radio"},"error":null,"id":93877}
+
+>>> {"id":93878,"params":{"propName":"PlayerIconURL"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"PlayerIconURL":"http://192.168.33.254/assets/mediaplayer/services/InternetRadio.png"},"error":null,"id":93878}
+
+>>> {"id":93879,"params":{"propName":"MediaType"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"MediaType":"audio"},"error":null,"id":93879}
+
+>>> {"id":93880,"params":{"propName":"Instance"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Instance":1},"error":null,"id":93880}
+
+>>> {"id":93881,"params":{"propName":"AlbumArt"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"AlbumArt":true},"error":null,"id":93881}
+
+>>> {"id":93882,"params":{"propName":"AlbumArtUrl"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"AlbumArtUrl":"http://static.airable.io/67/36/319121.png"},"error":null,"id":93882}
+
+>>> {"id":93883,"params":{"propName":"AlbumArtUrlNAT"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"AlbumArtUrlNAT":""},"error":null,"id":93883}
+
+>>> {"id":93884,"params":{"propName":"StationName"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"StationName":"KINK"},"error":null,"id":93884}
+
+>>> {"id":93885,"params":{"propName":"Album"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Album":""},"error":null,"id":93885}
+
+>>> {"id":93886,"params":null,"jsonrpc":"2.0","method":"MediaPlayerMenu1.Reset"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93886}
+
+>>> {"id":93892,"params":{"propName":"Genre"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Genre":""},"error":null,"id":93892}
+
+>>> {"id":93893,"params":{"propName":"Artist"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Artist":"Blur"},"error":null,"id":93893}
+
+>>> {"id":93894,"params":{"propName":"Title"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Title":"Beetlebum"},"error":null,"id":93894}
+
+>>> {"id":93895,"params":{"propName":"Language"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Language":""},"error":null,"id":93895}
+
+>>> {"id":93896,"params":{"propName":"RewindSpeed"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"RewindSpeed":1},"error":null,"id":93896}
+
+>>> {"id":93897,"params":{"propName":"ProviderName"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ProviderName":""},"error":null,"id":93897}
+
+
+>>> {"id":93898,"params":{"propName":"FfwdSpeed"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"FfwdSpeed":1},"error":null,"id":93898}
+
+>>> {"id":93899,"params":{"propName":"NextTitle"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"NextTitle":""},"error":null,"id":93899}
+
+>>> {"id":93900,"params":{"propName":"MediaReady"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"MediaReady":true},"error":null,"id":93900}
+
+>>> {"id":93901,"params":{"propName":"ShuffleState"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ShuffleState":0},"error":null,"id":93901}
+
+>>> {"id":93902,"params":{"propName":"RepeatState"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"RepeatState":0},"error":null,"id":93902}
+
+>>> {"id":93903,"params":{"propName":"StatusMsg"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"StatusMsg":{"text":" ","timeoutSec":10,"userInputRequired":"confirmation","initialUserInput":"","show":false,"textForItems":["OK"],"localExit":true}},"error":null,"id":93903}
+
+>>> {"id":93904,"params":{"propName":"Busy"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Busy":{"on":false,"timeoutSec":10}},"error":null,"id":93904}
+
+>>> {"id":93905,"params":{"propName":"ElapsedSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ElapsedSec":2},"error":null,"id":93905}
+
+>>> {"id":93906,"params":{"propName":"TrackSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TrackSec":-1},"error":null,"id":93906}
+
+>>> {"id":93907,"params":{"propName":"Rating"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Rating":{"current":0,"max":0,"system":0}},"error":null,"id":93907}
+
+>>> {"id":93908,"params":{"propName":"SelectedId"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"SelectedId":"1738450522534549"},"error":null,"id":93908}
+
+>>> {"id":93909,"params":{"propName":"Version"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Version":1},"error":null,"id":93909}
+
+>>> {"id":93910,"params":{"propName":"MaxReqItems"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"MaxReqItems":100},"error":null,"id":93910}
+
+>>> {"id":93911,"params":{"propName":"Level"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Level":3},"error":null,"id":93911}
+
+>>> {"id":93912,"params":{"propName":"ItemCnt"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ItemCnt":68},"error":null,"id":93912}
+
+>>> {"id":93913,"params":{"propName":"Title"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Title":"Local stations"},"error":null,"id":93913}
+
+>>> {"id":93914,"params":{"propName":"Subtitle"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Subtitle":""},"error":null,"id":93914}
+
+>>> {"id":93915,"params":{"propName":"ListSpecificFunctions"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ListSpecificFunctions":["BackToTop","Favorites","Create"]},"error":null,"id":93915}
+
+>>> {"id":93916,"params":{"propName":"IsMenuAvailable"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"IsMenuAvailable":true},"error":null,"id":93916}
+
+>>> {"id":93917,"params":{"propName":"StatusMsgMenu"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"StatusMsgMenu":{"text":" ","timeoutSec":10,"userInputRequired":"confirmation","initialUserInput":"","show":false,"textForItems":["OK"],"localExit":true,"listShown":false,"listDescriptionText":"","listItems":["Roger"],"listItemIndicesInitiallySelected":["1"],"listMode":""}},"error":null,"id":93917}
+
+>>> {"id":93918,"params":{"propName":"Instance"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"Instance":1},"error":null,"id":93918}
+
+>>> {"id":93919,"params":{"propName":"ElapsedSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ElapsedSec":2},"error":null,"id":93919}
+
+>>> {"id":93920,"params":{"propName":"TrackSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TrackSec":-1},"error":null,"id":93920}
+
+>>> {"id":93921,"params":{"propName":"ElapsedSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ElapsedSec":2},"error":null,"id":93921}
+
+>>> {"id":93922,"params":{"propName":"TrackSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TrackSec":-1},"error":null,"id":93922}
+
+>>> {"id":93923,"params":{"count":68,"item":1},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetData"}
+<<< {"jsonrpc":"2.0","result":[{"L1":"Golfbreker Radio","L2":"","URL":"http://static.airable.io/76/03/185926.png","URLNAT":"","Id":"5367719100788236"},{"L1":"Handgas FM","L2":"","URL":"http://static.airable.io/71/54/597278.png","URLNAT":"","Id":"9526498624589295"},{"L1":"Rietmolense Piraten Combinatie","L2":"","URL":"http://static.airable.io/42/73/787366.png","URLNAT":"","Id":"8543814652599395"},{"L1":"Radio 90 FM","L2":"","URL":"http://static.airable.io/95/30/702872.png","URLNAT":"","Id":"5176521971821785"},{"L1":"Radio Soest","L2":"","URL":"http://static.airable.io/32/37/330047.png","URLNAT":"","Id":"5050643861759454"},{"L1":"Lokale Omroep Spakenburg","L2":"","URL":"http://static.airable.io/00/34/847528.png","URLNAT":"","Id":"7326053802389652"},{"L1":"Different Radio 747 AM","L2":"","URL":"http://static.airable.io/01/24/445901.png","URLNAT":"","Id":"1708272682968527"},{"L1":"A1 Radio","L2":"","URL":"http://static.airable.io/18/56/619766.png","URLNAT":"","Id":"8627969597466291"},{"L1":"Fidelio Radio","L2":"","URL":"http://static.airable.io/38/11/598365.png","URLNAT":"","Id":"6283128610346467"},{"L1":"Midland FM","L2":"","URL":"http://static.airable.io/41/28/934976.png","URLNAT":"","Id":"9062908954452724"},{"L1":"Baarn FM","L2":"","URL":"http://static.airable.io/67/62/681822.png","URLNAT":"","Id":"6411766918841750"},{"L1":"Groot Nieuws Radio","L2":"","URL":"http://static.airable.io/00/19/676040.png","URLNAT":"","Id":"5763487175572664"},
+<<< ":"Radio 1224","L2":"","URL":"http://static.airable.io/32/65/478210.png","URLNAT":"","Id":"1684270855970680"},{"L1":"SRC FM","L2":"","URL":"http://static.airable.io/10/78/788367.png","URLNAT":"","Id":"9988865945022554"},{"L1":"KINK","L2":"","URL":"http://static.airable.io/67/36/319121.png","URLNAT":"","Id":"1738450522534549"},{"L1":"Radio 10 - Disco Classics","L2":"","URL":"http://static.airable.io/48/58/877138.png","URLNAT":"","Id":"6635613207705320"},{"L1":"NPO Sterren NL","L2":"","URL":"http://static.airable.io/05/83/623990.png","URLNAT":"","Id":"6798411740455777"},{"L1":"JINX Radio","L2":"","URL":"http://static.airable.io/77/73/699704.png","URLNAT":"","Id":"4603372034616769"},{"L1":"Radio 10 Brabant","L2":"","URL":"http://static.airable.io/85/47/150716.png","URLNAT":"","Id":"5948316467925907"},{"L1":"Radio 10","L2":"","URL":"http://static.airable.io/14/44/687261.png","URLNAT":"","Id":"5965512847527862"},{"L1":"Grand Prix Radio","L2":"","URL":"http://static.airable.io/00/94/365188.png","URLNAT":"","Id":"7883528679609299"},{"L1":"NPO 3FM","L2":"","URL":"http://static.airable.io/52/45/178015.png","URLNAT":"","Id":"3795191562734544"},{"L1":"NH Gooi","L2":"","URL":"http://static.airable.io/92/02/217143.png","URLNAT":"","Id":"1907677509821951"},{"L1":"Omroep Zeewolde","L2":"","URL":"http://static.airable.io/09/75/867269.png","URLNAT":"","Id":"6292517934460194"},{"L1":"NPO Radio 5","L2":"","URL":"http://static.airable.io/27/59/484304.p
+<<< "URLNAT":"","Id":"9279495764989407"},{"L1":"Radio 227","L2":"","URL":"http://static.airable.io/86/50/603952.png","URLNAT":"","Id":"5731086375657470"},{"L1":"NPO Radio 2 Soul & Jazz","L2":"","URL":"http://static.airable.io/41/69/425673.png","URLNAT":"","Id":"2894860468339175"},{"L1":"NPO Radio 4","L2":"","URL":"http://static.airable.io/84/14/899947.png","URLNAT":"","Id":"5643181786406786"},{"L1":"Concertzender","L2":"","URL":"http://static.airable.io/68/56/626156.png","URLNAT":"","Id":"1547305252403020"},{"L1":"Concertzender X-Rated","L2":"","URL":"http://static.airable.io/58/91/113863.png","URLNAT":"","Id":"6486797370016575"},{"L1":"Sublime Live","L2":"","URL":"http://static.airable.io/18/45/880179.png","URLNAT":"","Id":"1770116552244872"},{"L1":"NPO Radio 1","L2":"","URL":"http://static.airable.io/64/60/776646.png","URLNAT":"","Id":"7227920185774565"},{"L1":"NPO Radio 2","L2":"","URL":"http://static.airable.io/93/73/222434.png","URLNAT":"","Id":"1649039696902036"},{"L1":"Radio 538","L2":"","URL":"http://static.airable.io/84/27/804906.png","URLNAT":"","Id":"9613614007364959"},{"L1":"538 Party","L2":"","URL":"http://static.airable.io/55/25/252728.png","URLNAT":"","Id":"4182392699643970"},{"L1":"FunX Utrecht","L2":"","URL":"http://static.airable.io/26/10/120654.png","URLNAT":"","Id":"6868107508402318"},{"L1":"Radio M Utrecht","L2":"","URL":"http://static.airable.io/04/67/702370.png","URLNAT":"","Id":"7243753592483700"},{"L1":"Bingo FM
+<<< 2":"","URL":"http://static.airable.io/22/54/406685.png","URLNAT":"","Id":"6342899777460844"},{"L1":"Ede FM","L2":"","URL":"http://static.airable.io/70/62/563536.png","URLNAT":"","Id":"2408503788989037"},{"L1":"RADIONL Utrecht","L2":"","URL":"http://static.airable.io/16/60/511708.png","URLNAT":"","Id":"5368961265310645"},{"L1":"Roulette FM","L2":"","URL":"http://static.airable.io/28/83/663784.png","URLNAT":"","Id":"4589536626357585"},{"L1":"Antenne Domstad","L2":"","URL":"http://static.airable.io/02/10/360576.png","URLNAT":"","Id":"8714308505877853"},{"L1":"Radio Seabreeze 1395AM","L2":"","URL":"http://static.airable.io/92/14/495988.png","URLNAT":"","Id":"6835003642830998"},{"L1":"K-ROCK","L2":"","URL":"http://static.airable.io/73/28/277087.png","URLNAT":"","Id":"3585727416910231"},{"L1":"Sky Radio","L2":"","URL":"http://static.airable.io/86/91/991214.png","URLNAT":"","Id":"1599105661269277"},{"L1":"Radio Veronica","L2":"","URL":"http://static.airable.io/52/99/325940.png","URLNAT":"","Id":"3793608384672552"},{"L1":"Radio SBS","L2":"","URL":"http://static.airable.io/00/01/295438.png","URLNAT":"","Id":"3927618705201894"},{"L1":"Sunlite","L2":"","URL":"http://static.airable.io/14/65/731404.png","URLNAT":"","Id":"7041137390304357"},{"L1":"SLAM!","L2":"","URL":"http://static.airable.io/80/00/817365.png","URLNAT":"","Id":"8730455592740328"},{"L1":"Radio Veronica - Top 1000 Allertijden","L2":"","URL":"http://static.airable.io/04/58/491393.p
+<<< "URLNAT":"","Id":"2487182333599776"},{"L1":"100% NL","L2":"","URL":"http://static.airable.io/82/88/525311.png","URLNAT":"","Id":"1579605582635849"},{"L1":"RTV Rijnstreek","L2":"","URL":"http://static.airable.io/55/90/793269.png","URLNAT":"","Id":"5786771482322366"},{"L1":"Unique Smooth","L2":"","URL":"http://static.airable.io/36/59/312815.png","URLNAT":"","Id":"3449109356384724"},{"L1":"Unique Gold","L2":"","URL":"http://static.airable.io/07/12/886862.png","URLNAT":"","Id":"6711751511786134"},{"L1":"Radio Experience","L2":"","URL":"http://static.airable.io/19/59/490127.png","URLNAT":"","Id":"6168807413894684"},{"L1":"VeluweFM","L2":"","URL":"http://static.airable.io/09/05/612614.png","URLNAT":"","Id":"6481638522353024"},{"L1":"Happy AM","L2":"","URL":"http://static.airable.io/80/74/611280.png","URLNAT":"","Id":"1470137432683259"},{"L1":"Amplivier Radio","L2":"","URL":"http://static.airable.io/06/40/867079.png","URLNAT":"","Id":"5642839176114649"},{"L1":"RADIONL Arnhem","L2":"","URL":"http://static.airable.io/96/06/445821.png","URLNAT":"","Id":"3481894135475159"},{"L1":"BNR Nieuwsradio","L2":"","URL":"http://static.airable.io/93/40/739155.png","URLNAT":"","Id":"1813393508549779"},{"L1":"Radio Gelderland","L2":"","URL":"http://static.airable.io/55/88/374321.png","URLNAT":"","Id":"8832523955497892"},{"L1":"Nostalgie Nederland","L2":"","URL":"http://static.airable.io/71/32/620087.png","URLNAT":"","Id":"2587812252808362"},{"L1":"RTV Krim
+<<< rwaard","L2":"","URL":"http://static.airable.io/32/19/824110.png","URLNAT":"","Id":"3079362317454070"},{"L1":"Omroep Brabant","L2":"","URL":"http://static.airable.io/13/18/919247.png","URLNAT":"","Id":"5378462936263532"},{"L1":"Omroep Horst aan de Maas","L2":"","URL":"http://static.airable.io/71/43/689573.png","URLNAT":"","Id":"3326710532419384"},{"L1":"RADIONL","L2":"","URL":"http://static.airable.io/28/43/665476.png","URLNAT":"","Id":"7445511374622584"},{"L1":"Radio Decibel","L2":"","URL":"http://static.airable.io/14/82/510105.png","URLNAT":"","Id":"3002618492115289"},{"L1":"HITZZZ!!","L2":"","URL":"http://static.airable.io/21/82/680424.png","URLNAT":"","Id":"5268009803723544"}],"error":null,"id":93923}
+
+>>> {"id":93924,"params":null,"jsonrpc":"2.0","method":"MediaPlayerMenu1.Back"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93924}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"BusyChanged","handle":"sg"},"id":24950}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"Title":"Internet Radio","Subtitle":"","Level":2,"ItemCnt":8,"MaxReqItems":100,"Sorted":"none","ListItemIcons":true,"IsMenuAvailable":true}},"id":24951}
+
+>>> {"id":93925,"params":{"propName":"ListSpecificFunctions"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ListSpecificFunctions":["BackToTop","Favorites","Create"]},"error":null,"id":93925}
+
+>>> {"id":93926,"params":{"propName":"TransactionId"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","error":{"code":-32001,"message":"property not found","data":null},"id":93926}
+
+>>> {"id":93927,"params":{"count":8,"item":1},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetData"}
+<<< {"jsonrpc":"2.0","result":[{"L1":"History","L2":"","URL":"","URLNAT":"","Id":"airable.radios.history"},{"L1":"Recommendations","L2":"","URL":"","URLNAT":"","Id":"airable.radios.recommendations"},{"L1":"Local stations","L2":"","URL":"","URLNAT":"","Id":"airable.radios.local"},{"L1":"Popular stations","L2":"","URL":"","URLNAT":"","Id":"airable.radios.popular"},{"L1":"Trending","L2":"","URL":"","URLNAT":"","Id":"airable.radios.trending"},{"L1":"High Resolution","L2":"","URL":"","URLNAT":"","Id":"airable.radios.hq"},{"L1":"Filter","L2":"","URL":"","URLNAT":"","Id":"airable.radios.filter"},{"L1":"Search","L2":"","URL":"","URLNAT":"","Id":"airable.radios.search"}],"error":null,"id":93927}
+
+>>> {"id":93928,"params":null,"jsonrpc":"2.0","method":"MediaPlayerMenu1.Back"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93928}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"ListSpecificFunctions":["BackToTop","Advanced","Favorites","Create"]}},"id":24952}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"BusyChanged","handle":"sg"},"id":24953}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"Title":"Main","Subtitle":"","Level":1,"ItemCnt":4,"MaxReqItems":100,"Sorted":"none","ListItemIcons":false,"IsMenuAvailable":false}},"id":24954}
+
+>>> {"id":93929,"params":{"propName":"ListSpecificFunctions"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ListSpecificFunctions":["BackToTop","Advanced","Favorites","Create"]},"error":null,"id":93929}
+
+>>> {"id":93930,"params":{"propName":"TransactionId"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","error":{"code":-32001,"message":"property not found","data":null},"id":93930}
+
+>>> {"id":93931,"params":{"count":4,"item":1},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetData"}
+<<< {"jsonrpc":"2.0","result":[{"L1":"Spotify","L2":"","URL":"http://192.168.33.254/assets/mediaplayer/services/Spotify.png","URLNAT":"","Id":"spotify"},{"L1":"Internet Radio","L2":"","URL":"http://192.168.33.254/assets/mediaplayer/services/InternetRadio.png","URLNAT":"","Id":"airable.radios"},{"L1":"Podcasts","L2":"","URL":"http://192.168.33.254/assets/mediaplayer/services/Podcast.png","URLNAT":"","Id":"airable.feeds"},{"L1":"TIDAL","L2":"","URL":"http://192.168.33.254/assets/mediaplayer/services/Tidal.png","URLNAT":"","Id":"tidal"}],"error":null,"id":93931}
+
+>>> {"id":93932,"params":{"item":2},"jsonrpc":"2.0","method":"MediaPlayerMenu1.Select"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":93932}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"BusyChanged","handle":"sg","parameters":{"on":true,"timeoutSec":10}},"id":24955}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayer1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"PlayerState":"playing","StreamState":"streaming"}},"id":24956}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"BusyChanged","handle":"sg"},"id":24957}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"Title":"Internet Radio","Subtitle":"","Level":2,"ItemCnt":8,"MaxReqItems":100,"Sorted":"none","ListItemIcons":true,"IsMenuAvailable":true}},"id":24958}
+
+>>> {"id":93933,"params":{"propName":"ElapsedSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"ListSpecificFunctions":["BackToTop","Favorites","Create"]}},"id":24959}
+
+>>> {"id":93934,"params":{"propName":"TrackSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TrackSec":-1},"error":null,"id":93934}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"BusyChanged","handle":"sg","parameters":{"on":false,"timeoutSec":10}},"id":24960}
+
+>>> {"id":93935,"params":{"count":8,"item":1},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetData"}
+<<< {"jsonrpc":"2.0","result":{"ElapsedSec":9},"error":null,"id":93933}
+
+>>> {"id":93936,"params":{"propName":"ListSpecificFunctions"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ListSpecificFunctions":["BackToTop","Favorites","Create"]},"error":null,"id":93936}
+
+>>> {"id":93937,"params":{"propName":"TransactionId"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","error":{"code":-32001,"message":"property not found","data":null},"id":93937}
+
+<<< {"jsonrpc":"2.0","result":[{"L1":"History","L2":"","URL":"","URLNAT":"","Id":"airable.radios.history"},{"L1":"Recommendations","L2":"","URL":"","URLNAT":"","Id":"airable.radios.recommendations"},{"L1":"Local stations","L2":"","URL":"","URLNAT":"","Id":"airable.radios.local"},{"L1":"Popular stations","L2":"","URL":"","URLNAT":"","Id":"airable.radios.popular"},{"L1":"Trending","L2":"","URL":"","URLNAT":"","Id":"airable.radios.trending"},{"L1":"High Resolution","L2":"","URL":"","URLNAT":"","Id":"airable.radios.hq"},{"L1":"Filter","L2":"","URL":"","URLNAT":"","Id":"airable.radios.filter"},{"L1":"Search","L2":"","URL":"","URLNAT":"","Id":"airable.radios.search"}],"error":null,"id":93935}
+<<< {"jsonrpc":"2.0","method":"MediaPlayer1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"ActionsAvailable":["GetMenu","StatusMsgResponse","VolumeUp","VolumeDown","VolumeControl","ProgressInfo","Loop","Pause"]}},"id":24961}
+
+>>> {"id":93938,"params":{"propName":"ElapsedSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ElapsedSec":9},"error":null,"id":93938}
+
+>>> {"id":93939,"params":{"propName":"TrackSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TrackSec":-1},"error":null,"id":93939}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayer1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"PlayerName":"Internet Radio","PlayerIconURL":"http://192.168.33.254/assets/mediaplayer/services/InternetRadio.png","TextLines":["KINK","Beetlebum","Blur"],"AlbumArt":true,"AlbumArtUrl":"http://static.airable.io/67/36/319121.png","StationName":"KINK","ProgressBar":false,"ElapsedSec":0,"TrackSec":-1,"TrackNum":0,"TrackCnt":0,"Title":"Beetlebum","Artist":"Blur","Album":"","SelectedId":"1738450522534549","Rating":{"current":0,"max":0,"system":0},"ActionsAvailable":["GetMenu","StatusMsgResponse","VolumeUp","VolumeDown","VolumeControl","ProgressInfo","Loop","Pause"]}},"id":24962}
+
+>>> {"id":93940,"params":{"propName":"ElapsedSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ElapsedSec":0},"error":null,"id":93940}
+
+>>> {"id":93941,"params":{"propName":"TrackSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TrackSec":-1},"error":null,"id":93941}
+
+>>> {"id":93942,"params":{"propName":"ElapsedSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ElapsedSec":0},"error":null,"id":93942}
+
+>>> {"id":93943,"params":{"propName":"TrackSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TrackSec":-1},"error":null,"id":93943}
+
+
+

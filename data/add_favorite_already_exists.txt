@@ -1,0 +1,43 @@
+>>> {"id":101244,"params":null,"jsonrpc":"2.0","method":"MediaPlayerMenu1.Create"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":101244}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"StatusMsgMenuChanged","handle":"sg","parameters":{"text":"Would you like to call this favorite?","timeoutSec":30,"userInputRequired":"alphanumeric","initialUserInput":"KINK","show":true,"textForItems":["OK","Cancel"],"localExit":true,"listShown":false,"listDescriptionText":"Add your favorite to this account","listItems":["Roger"],"listItemIndicesInitiallySelected":["1"]}},"id":26882}
+
+>>> {"id":101245,"params":{"id":1,"userInput":"KINK","state":1,"localExit":false},"jsonrpc":"2.0","method":"MediaPlayerMenu1.StatusMsgResponseMenu"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":101245}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"StatusMsgMenuChanged","handle":"sg","parameters":{"text":"Favorite Name already in use","timeoutSec":30,"userInputRequired":"confirmation","initialUserInput":"","show":true,"textForItems":["OK"],"localExit":true,"listShown":false,"listDescriptionText":""}},"id":26883}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"ClearChanged","handle":"sg"},"id":26884}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"BusyChanged","handle":"sg"},"id":26885}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"Title":"Favorites","Subtitle":"","Level":2,"ItemCnt":3,"MaxReqItems":100,"Sorted":"none","ListItemIcons":true,"IsMenuAvailable":true}},"id":26886}
+
+>>> {"id":101246,"params":{"propName":"ListSpecificFunctions"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ListSpecificFunctions":["BackToTop","Favorites","Create"]},"error":null,"id":101246}
+
+>>> {"id":101247,"params":{"propName":"TransactionId"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
+<<< {"jsonrpc":"2.0","error":{"code":-32001,"message":"property not found","data":null},"id":101247}
+
+>>> {"id":101248,"params":{"count":3,"item":1},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetData"}
+<<< {"jsonrpc":"2.0","result":[{"L1":"KINK","L2":"Internet Radio","URL":"http://static.airable.io/67/36/319121.png","URLNAT":"","Id":"1738450522534549"},{"L1":"Radio 10","L2":"Internet Radio","URL":"http://static.airable.io/14/44/687261.png","URLNAT":"","Id":"5965512847527862"},{"L1":"Lee","L2":"TIDAL","URL":"https://resources.tidal.com/images/0b057307/15b2/44ce/9361/ed1fc6f6da1b/1280x1280.jpg","URLNAT":"","Id":"{\"browseKey\":{\"playlistURL\":\"playlist/Mpsw4MUvNGIYOfUjYGIYw3hvYdrRWmKm4MJ-Vu0myfkmYuh5Ya-mcms9VMw0zAhn2MrtNqhbWABmyFs_N3JjVMJjW_Rmzfsv23kmghj\",\"trackId\":\"track/5119742\"}}"}],"error":null,"id":101248}
+
+>>> {"id":101249,"params":{"id":1,"userInput":"KINK","state":1,"localExit":false},"jsonrpc":"2.0","method":"MediaPlayerMenu1.StatusMsgResponseMenu"}
+<<< {"jsonrpc":"2.0","result":"success","error":null,"id":101249}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"StatusMsgMenuChanged","handle":"sg","parameters":{"text":" ","timeoutSec":10,"userInputRequired":"confirmation","initialUserInput":"","show":false,"textForItems":["OK"],"localExit":true,"listShown":false,"listDescriptionText":""}},"id":26887}
+
+<<< {"jsonrpc":"2.0","method":"MediaPlayer1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"PlayerName":"Internet Radio","PlayerIconURL":"http://192.168.33.254/assets/mediaplayer/services/InternetRadio.png","TextLines":["KINK","KINK"," "],"AlbumArt":true,"AlbumArtUrl":"http://static.airable.io/67/36/319121.png","StationName":"KINK","ProgressBar":false,"ElapsedSec":0,"TrackSec":-1,"TrackNum":0,"TrackCnt":0,"Title":"KINK","Artist":" ","Album":"","SelectedId":"1738450522534549","Rating":{"current":0,"max":0,"system":0},"ActionsAvailable":["GetMenu","StatusMsgResponse","VolumeUp","VolumeDown","VolumeControl","ProgressInfo","Loop","Pause"]}},"id":26888}
+
+>>> {"id":101250,"params":{"propName":"ElapsedSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ElapsedSec":0},"error":null,"id":101250}
+
+>>> {"id":101251,"params":{"propName":"TrackSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TrackSec":-1},"error":null,"id":101251}
+
+>>> {"id":101252,"params":{"propName":"ElapsedSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ElapsedSec":0},"error":null,"id":101252}
+
+>>> {"id":101253,"params":{"propName":"TrackSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"TrackSec":-1},"error":null,"id":101253}
