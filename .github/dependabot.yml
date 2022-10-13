@@ -8,5 +8,3 @@ updates:
       interval: 'daily'
     allow:
       - dependency-type: 'production'
-#    reviewers:
-#      - "jessety"

@@ -1,18 +1,18 @@
 {
-  "name": "boilerplate-typescript-package",
+  "name": "crestron-mediaplayer-sdk",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "description": "",
-  "homepage": "https://github.com/jessety/boilerplate-typescript-package#readme",
+  "homepage": "https://github.com/Sight-And-Sound/Crestron-MediaPlayer-SDK#readme",
   "bugs": {
-    "url": "https://github.com/jessety/boilerplate-typescript-package/issues"
+    "url": "https://github.com/Sight-And-Sound/Crestron-MediaPlayer-SDK/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jessety/boilerplate-typescript-package.git"
+    "url": "git+https://github.com/Sight-And-Sound/Crestron-MediaPlayer-SDK.git"
   },
   "license": "MIT",
-  "author": "Jesse Youngblood",
+  "author": "Roger Kok",
   "type": "commonjs",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -27,8 +27,7 @@
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rimraf lib",
-    "format": "sort-package-json && prettier --write '**/*.{ts,js,json,yml,md}' && eslint --fix .",
-    "lint": "eslint . && ec .",
+    "lint": "eslint .",
     "prepare": "husky install",
     "release:major": "npm version major --no-commit-hooks && git push --follow-tags",
     "release:minor": "npm version minor --no-commit-hooks && git push --follow-tags",
@@ -39,18 +38,13 @@
     "rxjs": "^7.5.7"
   },
   "devDependencies": {
-    "@jessety/eslint-config": "^2.2.5",
-    "@jessety/prettier-config": "^1.1.0",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.4",
-    "editorconfig-checker": "^4.0.2",
     "eslint": "^8.1.0",
     "husky": "^7.0.0",
     "jest": "^27.0.3",
     "lint-staged": "^11.2.6",
-    "prettier": "^2.3.0",
     "rimraf": "^3.0.2",
-    "sort-package-json": "^1.52.0",
     "ts-jest": "^27.0.1",
     "typescript": "^4.1.5"
   }
