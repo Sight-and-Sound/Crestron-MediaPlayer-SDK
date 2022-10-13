@@ -1,5 +1,5 @@
 describe('empty test suite', () => {
-  test('runs', () => {
-    expect(true).toBe(true);
-  });
+    test('runs', () => {
+        expect(true).toBe(true);
+    });
 });
