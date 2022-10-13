@@ -1,7 +1,10 @@
 {
   "extends": "@jessety",
   "rules": {
-    "linebreak-style": ["warn", "unix"]
+    "linebreak-style": ["warn", "unix"],
+    "indent": ["warn", 4, { "SwitchCase": 1 }],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off"
   },
   "overrides": [
     {
