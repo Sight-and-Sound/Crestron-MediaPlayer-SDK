@@ -4,6 +4,8 @@
 
 Initial works from the MVP https://github.com/JayLiaProgramming/MediaPlayer rewrote into SDK-like package to hopefully in the future make integrations with the CRPC streams easy.
 
+## NOT READY FOR USE YET
+
 ```typescript
 const container = new CrpcContainer('5db35e97-a379-46e4-ac32-6b16d5ed6d3e');
 
