@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs';
 import { CrpcObject } from '../model/crpc-object';
 import { CrpcProtocol } from '../protocol/crpc';
 import { EventName } from '../protocol/event-name';
@@ -9,7 +10,7 @@ import { DeferredRejectionMessage } from '../util/deferred/deferred-rejection-me
 import { CrpcBrowser } from './browser';
 import { CrpcPlayer } from './player';
 
-export class CrpcMediaPlayer {
+export class CrpcContainer {
     private _objects: CrpcObject[] = [];
     private readonly _protocol: CrpcProtocol;
 
@@ -30,6 +31,14 @@ export class CrpcMediaPlayer {
         await this._getObjects();
 
         await this._registerEvent(EventName.ObjectDirectoryChanged);
+    }
+
+    public pipeFromServer(data: string): void {
+        this._protocol.receive(data);
+    }
+
+    public get pipeToServer(): Subject<string> {
+        return this._protocol.transmit;
     }
 
     private async register(): Promise<void> {

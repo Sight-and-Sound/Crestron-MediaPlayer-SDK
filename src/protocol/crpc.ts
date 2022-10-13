@@ -4,12 +4,9 @@ import { CrpcEventPacket } from '../model/crpc-event-packet';
 import { ReceivePacket } from '../model/receive-packet';
 import { TransmitPacket } from '../model/transmit-packet';
 import { Deferred } from '../util/deferred/deferred';
-import { DeferredRejectionMessage } from '../util/deferred/deferred-rejection-message';
 import { TemporaryDeferred } from '../util/deferred/temporary-deferred';
 import { Send as BrowserSend } from './browser/packet/send';
-import { EventName } from './event-name';
 import { GenericSend } from './packet/generic-send';
-import { RegisterEvent } from './packet/register-event';
 import { Send as PlayerSend } from './player/packet/send';
 
 export class CrpcProtocol {
