@@ -1,4 +1,5 @@
-export class StatusMsgChanged {
+export class StatusMsgChanged
+{
     text?: string;
     timeoutSec?: number;
     userInputRequired?: 'alphanumeric' | 'confirm';

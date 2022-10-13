@@ -9,15 +9,15 @@ import { Send as BrowserSend } from './browser/packet/send';
 import { GenericSend } from './packet/generic-send';
 import { Send as PlayerSend } from './player/packet/send';
 
-export class CrpcProtocol {
+export class CrpcProtocol
+{
     /**
-   *  @description Output to inject into transport
-   */
+     *  @description Output to inject into transport
+     */
     public transmit: Subject<string> = new Subject<string>();
-
     /**
-   * @description Once an event is received it will pass through here.
-   */
+     * @description Once an event is received it will pass through here.
+     */
     public event: Subject<CrpcEventPacket> = new Subject<CrpcEventPacket>();
     public dialog: Subject<CrpcDialog | null> = new Subject<CrpcDialog | null>();
 
@@ -25,17 +25,20 @@ export class CrpcProtocol {
 
     private readonly _jsonStart = '{"jsonrpc":';
     private _deferredById: {
-    [messageId: number]: Deferred<any, any> | TemporaryDeferred<any, any>;
-  } = {};
+        [messageId: number]: Deferred<any, any> | TemporaryDeferred<any, any>;
+    } = {};
 
     private _lastMessageId = Math.floor(Math.random() * (65535 - 10 + 1)) + 10;
     private _parseBuffer = '';
     private _lastParsedInput = '';
 
-    constructor(private _handle: string) {}
+    constructor(private _handle: string)
+    {
+    }
 
-    private _parsePartial(input: string): void {
-    // Make sure to never inject double messages into our buffer.
+    private _parsePartial(input: string): void
+    {
+        // Make sure to never inject double messages into our buffer.
         if (this._lastParsedInput === input) {
             console.log('Received duplicate input for parsing, ignored it.');
             return;
@@ -51,12 +54,10 @@ export class CrpcProtocol {
             // When we receive
             if (
                 partialMessage.startsWith(this._jsonStart) &&
-        this._parseBuffer !== ''
+                this._parseBuffer !== ''
             ) {
                 this._parseBuffer = partialMessage;
-                console.warn(
-                    'Buffer already had data but received new json start, clearing!',
-                );
+                console.warn('Buffer already had data but received new json start, clearing!');
                 return;
             }
 
@@ -69,7 +70,8 @@ export class CrpcProtocol {
         this._parseBuffer = '';
     }
 
-    private _parseFull(data: string): void {
+    private _parseFull(data: string): void
+    {
         const messages = data.split(this._jsonStart);
         if (messages.length > 2) {
             messages.forEach((message) => {
@@ -92,8 +94,9 @@ export class CrpcProtocol {
         this._handlePacket(packet);
     }
 
-    private _handlePacket(packet: ReceivePacket): void {
-    // Check for callbacks and call them when available
+    private _handlePacket(packet: ReceivePacket): void
+    {
+        // Check for callbacks and call them when available
         if (packet.id && this._deferredById[packet.id]) {
             if (packet.error) {
                 this._deferredById[packet.id]?.reject(packet);
@@ -112,7 +115,8 @@ export class CrpcProtocol {
         }
     }
 
-    public receive(message: string): void {
+    public receive(message: string): void
+    {
         this._parsePartial(message);
     }
 
@@ -120,9 +124,10 @@ export class CrpcProtocol {
         instanceStr: string,
         method: string,
         params: unknown = null,
-    ): Promise<any> {
+    ): Promise<any>
+    {
         const messageId =
-      this._lastMessageId >= 65535 ? 1000 : this._lastMessageId + 1;
+            this._lastMessageId >= 65535 ? 1000 : this._lastMessageId + 1;
         const message = Object.assign(new TransmitPacket(), {
             id: this._lastMessageId,
             method: `${instanceStr}.${method}`,
@@ -148,7 +153,8 @@ export class CrpcProtocol {
         return this._deferredById[messageId].promise;
     }
 
-    public send(packet: GenericSend): Promise<any> {
+    public send(packet: GenericSend): Promise<any>
+    {
         if (packet instanceof BrowserSend || packet instanceof PlayerSend) {
             return this.sendRaw(packet.instanceName, packet.method, packet.body);
         }

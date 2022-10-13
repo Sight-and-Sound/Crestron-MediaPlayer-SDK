@@ -1,19 +1,21 @@
 import { MethodName } from '../method-name';
 import { GenericSend } from './generic-send';
 
-export class Register extends GenericSend {
+export class Register extends GenericSend
+{
     method = MethodName.Register;
     body: {
-    uuid: string;
-    ver: string;
-    maxPacketSize: number;
-    type: string;
-    encoding: string;
-    format: string;
-    name: string;
-  };
+        uuid: string;
+        ver: string;
+        maxPacketSize: number;
+        type: string;
+        encoding: string;
+        format: string;
+        name: string;
+    };
 
-    constructor(uuid: string, version: string = '1.0') {
+    constructor(uuid: string, version: string = '1.0')
+    {
         super();
         this.body = {
             uuid,

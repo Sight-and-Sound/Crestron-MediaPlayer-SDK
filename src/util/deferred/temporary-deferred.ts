@@ -5,7 +5,8 @@
 import { DeferredRejectionMessage } from './deferred-rejection-message';
 import { DeferredRejectionReason } from './deferred-rejection-reason';
 
-export class TemporaryDeferred<T, E> {
+export class TemporaryDeferred<T, E>
+{
     private readonly _timeout: any;
     private _originalReject!: (error: DeferredRejectionMessage<E>) => void;
 
@@ -13,7 +14,8 @@ export class TemporaryDeferred<T, E> {
     public reject!: (error: E) => void;
     public promise: Promise<T>;
 
-    constructor(private _timeoutMs: number, private _onTimeout: () => void) {
+    constructor(private _timeoutMs: number, private _onTimeout: () => void)
+    {
         this._timeout = setTimeout(() => {
             this._onTimeout();
             this._originalReject(DeferredRejectionMessage.timeout<E>());

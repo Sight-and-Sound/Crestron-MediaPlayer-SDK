@@ -1,4 +1,5 @@
-export class ReceivePacket {
+export class ReceivePacket
+{
     jsonrpc!: string;
     id?: number;
     result?: any;

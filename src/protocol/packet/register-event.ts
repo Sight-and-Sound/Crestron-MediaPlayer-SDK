@@ -4,7 +4,8 @@ import { MethodName } from '../method-name';
 import { EventName as PlayerEventName } from '../player/event-name';
 import { GenericSend } from './generic-send';
 
-export class RegisterEvent extends GenericSend {
+export class RegisterEvent extends GenericSend
+{
     method = MethodName.RegisterEvent;
     instanceName?: string;
     ev: EventName | BrowserEventName | PlayerEventName;
@@ -14,7 +15,8 @@ export class RegisterEvent extends GenericSend {
         handle: string,
         event: EventName | BrowserEventName | PlayerEventName,
         instanceName?: string,
-    ) {
+    )
+    {
         super();
         this.handle = handle;
         this.instanceName = instanceName;

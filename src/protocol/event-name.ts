@@ -1,3 +1,4 @@
-export enum EventName {
-  ObjectDirectoryChanged = 'ObjectDirectoryChanged',
+export enum EventName
+{
+    ObjectDirectoryChanged = 'ObjectDirectoryChanged',
 }

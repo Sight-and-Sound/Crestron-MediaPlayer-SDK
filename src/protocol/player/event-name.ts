@@ -1,6 +1,7 @@
-export enum EventName {
-  BusyChanged = 'BusyChanged',
-  StateChangedByBrowseContext = 'StateChangedByBrowseContext',
-  StatusMsgChanged = 'StatusMsgChanged',
-  StateChanged = 'StateChanged',
+export enum EventName
+{
+    BusyChanged = 'BusyChanged',
+    StateChangedByBrowseContext = 'StateChangedByBrowseContext',
+    StatusMsgChanged = 'StatusMsgChanged',
+    StateChanged = 'StateChanged',
 }

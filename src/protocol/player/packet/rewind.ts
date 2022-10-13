@@ -1,11 +1,13 @@
 import { MethodName } from '../method-name';
 import { Send } from './send';
 
-export class Rewind extends Send {
+export class Rewind extends Send
+{
     method!: MethodName.Rewind;
     instanceName!: string;
 
-    constructor(instanceName: string) {
+    constructor(instanceName: string)
+    {
         super();
         this.instanceName = instanceName;
     }

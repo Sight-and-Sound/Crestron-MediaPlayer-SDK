@@ -1,3 +1,4 @@
-export class StateChanged {
-  [key: string]: any;
+export class StateChanged
+{
+    [key: string]: any;
 }

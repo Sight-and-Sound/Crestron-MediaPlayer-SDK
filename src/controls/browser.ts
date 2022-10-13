@@ -7,48 +7,44 @@ import { BusyChanged } from '../protocol/event/busy-changed';
 import { StateChanged } from '../protocol/event/state-changed';
 import { ControlWithPropertiesAbstract } from './control-with-properties-abstract';
 
-export class CrpcBrowser extends ControlWithPropertiesAbstract {
+export class CrpcBrowser extends ControlWithPropertiesAbstract
+{
     public version$: Observable<number> = this._createPropertySubject<number>(
         'Version',
         0,
     );
-
     public maxReqItems$: Observable<number> = this._createPropertySubject<number>(
         'MaxReqItems',
         0,
     );
-
     public level$: Observable<number> = this._createPropertySubject<number>(
         'Level',
         0,
     );
-
     public itemCnt$: Observable<number> = this._createPropertySubject<number>(
         'ItemCnt',
         0,
     );
-
     public title$: Observable<string> = this._createPropertySubject<string>(
         'Title',
         '',
     );
-
     public subtitle$: Observable<string> = this._createPropertySubject<string>(
         'Subtitle',
         '',
     );
-
-    public listSpecificFunctions$: Observable<string[]> =
-        this._createPropertySubject<string[]>('ListSpecificFunctions', []);
-
-    public isMenuAvailable$: Observable<boolean> =
-        this._createPropertySubject<boolean>('IsMenuAvailable', false);
-
+    public listSpecificFunctions$: Observable<string[]> = this._createPropertySubject<string[]>(
+        'ListSpecificFunctions',
+        [],
+    );
+    public isMenuAvailable$: Observable<boolean> = this._createPropertySubject<boolean>(
+        'IsMenuAvailable',
+        false,
+    );
     public statusMsgMenu$: Observable<any> = this._createPropertySubject<any>(
         'StatusMsgMenu',
         {},
     );
-
     public instance$: Observable<number> = this._createPropertySubject<number>(
         'Instance',
         0,
@@ -59,11 +55,13 @@ export class CrpcBrowser extends ControlWithPropertiesAbstract {
         _uuid: string,
         _instanceName: string,
         _protocol: CrpcProtocol,
-    ) {
+    )
+    {
         super(_handle, _instanceName, _protocol);
     }
 
-    public initialize(): void {
+    public initialize(): void
+    {
         this._registerEvent(EventName.BusyChanged).catch((e) =>
             console.error('Register BusyChanged failed.', e),
         );
@@ -84,7 +82,8 @@ export class CrpcBrowser extends ControlWithPropertiesAbstract {
         );
     }
 
-    protected _handleEvent(event: string, properties: any) {
+    protected _handleEvent(event: string, properties: any)
+    {
         switch (event as EventName) {
             case EventName.BusyChanged:
                 this._onBusyChanged(Object.assign(new BusyChanged(), properties || {}));

@@ -1,20 +1,23 @@
-export enum UserInput {
-  Alphanumeric = 'alphanumeric',
-  Confirm = 'Confirm',
+export enum UserInput
+{
+    Alphanumeric = 'alphanumeric',
+    Confirm = 'Confirm',
 }
 
-export class CrpcDialog {
+export class CrpcDialog
+{
     public close: (
-    itemNumber: number,
-    userInput?: string | boolean | number,
-  ) => void;
+        itemNumber: number,
+        userInput?: string | boolean | number,
+    ) => void;
 
     constructor(
         callback: (
-      itemNumber: number,
-      userInput?: string | boolean | number,
-    ) => void,
-    ) {
+            itemNumber: number,
+            userInput?: string | boolean | number,
+        ) => void,
+    )
+    {
         this.close = callback;
     }
 

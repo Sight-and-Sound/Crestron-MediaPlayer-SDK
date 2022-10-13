@@ -1,5 +1,6 @@
-export enum DeferredRejectionReason {
-  Unknown,
-  Timeout,
-  External,
+export enum DeferredRejectionReason
+{
+    Unknown,
+    Timeout,
+    External,
 }

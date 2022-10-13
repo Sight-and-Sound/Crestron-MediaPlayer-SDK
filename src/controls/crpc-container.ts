@@ -10,7 +10,8 @@ import { DeferredRejectionMessage } from '../util/deferred/deferred-rejection-me
 import { CrpcBrowser } from './browser';
 import { CrpcPlayer } from './player';
 
-export class CrpcContainer {
+export class CrpcContainer
+{
     private _objects: CrpcObject[] = [];
     private readonly _protocol: CrpcProtocol;
 
@@ -18,34 +19,38 @@ export class CrpcContainer {
     public player?: CrpcPlayer;
 
     /**
-   * @param _uuid Make sure this id is always the same for the client you are using!
-   * @param _handle Possible custom handle to use for comms, by default crestron used "sg", we use "hmp(Html Media Player)"
-   */
-    constructor(private _uuid: string, private _handle = 'hmp') {
+     * @param _uuid Make sure this id is always the same for the client you are using!
+     * @param _handle Possible custom handle to use for comms, by default crestron used "sg", we use "hmp(Html Media Player)"
+     */
+    constructor(private _uuid: string, private _handle = 'hmp')
+    {
         this._protocol = new CrpcProtocol(_handle);
     }
 
-    public async initialize(): Promise<void> {
+    public async initialize(): Promise<void>
+    {
         await this.register();
-
         await this._getObjects();
-
         await this._registerEvent(EventName.ObjectDirectoryChanged);
     }
 
-    public pipeFromServer(data: string): void {
+    public pipeFromServer(data: string): void
+    {
         this._protocol.receive(data);
     }
 
-    public get pipeToServer(): Subject<string> {
+    public get pipeToServer(): Subject<string>
+    {
         return this._protocol.transmit;
     }
 
-    private async register(): Promise<void> {
+    private async register(): Promise<void>
+    {
         await this._protocol.send(new Register(this._uuid, this._protocol.version));
     }
 
-    private async _getObjects(): Promise<void> {
+    private async _getObjects(): Promise<void>
+    {
         const response = await this._protocol.send(new GetObjects());
 
         if (response instanceof DeferredRejectionMessage) {
@@ -53,7 +58,8 @@ export class CrpcContainer {
             return;
         }
 
-        this._objects = response.result.objects.object.map((rawObj: any) => {
+        this._objects = response.result.objects.object.map((rawObj: any) =>
+        {
             const obj: CrpcObject = Object.assign(new CrpcObject(), rawObj);
 
             if (obj.isMediaPlayer()) {
@@ -82,9 +88,10 @@ export class CrpcContainer {
     }
 
     /**
-   * @returns Promise<CrpcBrowser | undefined> if undefined the browser could not be retrieved for some reason!
-   */
-    private async _getBrowser(): Promise<CrpcBrowser | undefined> {
+     * @returns Promise<CrpcBrowser | undefined> if undefined the browser could not be retrieved for some reason!
+     */
+    private async _getBrowser(): Promise<CrpcBrowser | undefined>
+    {
         if (!this.player) {
             throw Error(
                 'Could not get CrpcBrowser as there is no player available to browse!',
@@ -104,8 +111,7 @@ export class CrpcContainer {
             return undefined;
         }
 
-        const instanceName =
-      response.result.instanceName || response.result.instancename;
+        const instanceName = response.result.instanceName || response.result.instancename;
         return new CrpcBrowser(
             this._handle,
             this._uuid,
@@ -115,11 +121,12 @@ export class CrpcContainer {
     }
 
     /**
-   * @returns Promise<boolean> true if success, false if error
-   */
-    private async _registerEvent(type: EventName): Promise<boolean> {
+     * @returns Promise<boolean> true if success, false if error
+     */
+    private async _registerEvent(type: EventName): Promise<boolean>
+    {
         const response = await this._protocol.send(
-            new RegisterEvent(this._handle, type),
+            new RegisterEvent(this._handle, type)
         );
 
         if (response instanceof DeferredRejectionMessage) {

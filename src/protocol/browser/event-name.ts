@@ -1,7 +1,8 @@
-export enum EventName {
-  BusyChanged = 'BusyChanged',
-  StateChanged = 'StateChanged',
-  StatusMsgMenuChanged = 'StatusMsgMenuChanged',
-  ClearChanged = 'ClearChanged',
-  ListChanged = 'ListChanged',
+export enum EventName
+{
+    BusyChanged = 'BusyChanged',
+    StateChanged = 'StateChanged',
+    StatusMsgMenuChanged = 'StatusMsgMenuChanged',
+    ClearChanged = 'ClearChanged',
+    ListChanged = 'ListChanged',
 }

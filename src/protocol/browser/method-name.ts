@@ -1,3 +1,4 @@
-export enum MethodName {
-  GetProperty = 'GetProperty',
+export enum MethodName
+{
+    GetProperty = 'GetProperty',
 }
