@@ -5,4 +5,11 @@ export abstract class Send extends GenericSend
 {
     method!: MethodName;
     instanceName!: string;
+    body!: any;
+
+    constructor(instanceName: string)
+    {
+        super();
+        this.instanceName = instanceName;
+    }
 }

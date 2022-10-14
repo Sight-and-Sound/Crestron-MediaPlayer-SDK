@@ -7,9 +7,7 @@ import { GenericSend } from './generic-send';
 export class RegisterEvent extends GenericSend
 {
     method = MethodName.RegisterEvent;
-    instanceName?: string;
-    ev: EventName | BrowserEventName | PlayerEventName;
-    handle: string;
+    body!: { handle: string, instanceName?: string, ev: EventName | BrowserEventName | PlayerEventName };
 
     constructor(
         handle: string,
@@ -18,8 +16,10 @@ export class RegisterEvent extends GenericSend
     )
     {
         super();
-        this.handle = handle;
-        this.instanceName = instanceName;
-        this.ev = event;
+        this.body = {
+            handle,
+            instanceName,
+            ev: event
+        };
     }
 }

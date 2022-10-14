@@ -4,8 +4,8 @@ import { GenericSend } from './generic-send';
 export class StatusMsgResponseMenu extends GenericSend
 {
     method = MethodName.StatusMsgResponseMenu;
-    instanceName: string;
     body!: {
+        instanceName?: string;
         id: number;
         userInput?: string | boolean | number;
         state: boolean;
@@ -19,8 +19,8 @@ export class StatusMsgResponseMenu extends GenericSend
     )
     {
         super();
-        this.instanceName = instanceName;
         this.body = {
+            instanceName,
             id: itemNumber,
             userInput: input,
             state: true,

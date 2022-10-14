@@ -126,10 +126,9 @@ export class CrpcProtocol
         params: unknown = null,
     ): Promise<any>
     {
-        const messageId =
-            this._lastMessageId >= 65535 ? 1000 : this._lastMessageId + 1;
+        const messageId = this._lastMessageId >= 65535 ? 1000 : this._lastMessageId + 1;
         const message = Object.assign(new TransmitPacket(), {
-            id: this._lastMessageId,
+            id: messageId,
             method: `${instanceStr}.${method}`,
             params,
         });

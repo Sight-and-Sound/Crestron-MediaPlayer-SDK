@@ -22,7 +22,10 @@ export class CrpcContainer
      * @param _uuid Make sure this id is always the same for the client you are using!
      * @param _handle Possible custom handle to use for comms, by default crestron used "sg", we use "hmp(Html Media Player)"
      */
-    constructor(private _uuid: string, private _handle = 'hmp')
+    constructor(
+        private _uuid: string,
+        private _handle = 'hmp'
+    )
     {
         this._protocol = new CrpcProtocol(_handle);
     }

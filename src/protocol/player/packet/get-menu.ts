@@ -4,13 +4,11 @@ import { Send } from './send';
 export class GetMenu extends Send
 {
     method!: MethodName.GetMenu;
-    instanceName!: string;
-    uuid!: string;
+    body!: { uuid: string };
 
     constructor(instanceName: string, uuid: string)
     {
-        super();
-        this.instanceName = instanceName;
-        this.uuid = uuid;
+        super(instanceName);
+        this.body = { uuid };
     }
 }
