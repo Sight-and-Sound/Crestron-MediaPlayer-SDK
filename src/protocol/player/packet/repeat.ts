@@ -3,5 +3,5 @@ import { Send } from './send';
 
 export class Repeat extends Send
 {
-    method!: MethodName.Repeat;
+    method = MethodName.Repeat;
 }

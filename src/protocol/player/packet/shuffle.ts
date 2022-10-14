@@ -3,5 +3,5 @@ import { Send } from './send';
 
 export class Shuffle extends Send
 {
-    method!: MethodName.Shuffle;
+    method = MethodName.Shuffle;
 }

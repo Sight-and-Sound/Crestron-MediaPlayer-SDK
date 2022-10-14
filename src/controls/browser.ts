@@ -122,17 +122,23 @@ export class CrpcBrowser extends ControlWithPropertiesAbstract
     {
         this.itemCnt$.subscribe({
             next: async (itemCount: number) => {
+                if (itemCount === 0) {
+                    this._updateLocalProperty('ListItems', []);
+                    return;
+                }
+
                 const response = await this._protocol.send(
                     new GetData(this._instanceName, itemCount)
                 ).catch((e) => console.error('Failed to retrieve browser list items!', e));
 
-                ((response.result || []) as CrpcListItem[]).map((rawItem, index) => {
+                const items = ((response.result || []) as CrpcListItem[]).map((rawItem, index) => {
                     return ListItem.fromCrpc(
                         rawItem,
                         (index + 1),
                         () => this._selectItemByIndex(index + 1)
                     );
-                })
+                });
+                this._updateLocalProperty('ListItems', items);
             }
         })
     }

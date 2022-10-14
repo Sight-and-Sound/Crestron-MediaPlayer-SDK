@@ -3,5 +3,5 @@ import { Send } from './send';
 
 export class ThumbsUp extends Send
 {
-    method!: MethodName.ThumbsUp;
+    method = MethodName.ThumbsUp;
 }

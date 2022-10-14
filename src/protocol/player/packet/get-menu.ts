@@ -3,7 +3,7 @@ import { Send } from './send';
 
 export class GetMenu extends Send
 {
-    method!: MethodName.GetMenu;
+    method = MethodName.GetMenu;
     body!: { uuid: string };
 
     constructor(instanceName: string, uuid: string)

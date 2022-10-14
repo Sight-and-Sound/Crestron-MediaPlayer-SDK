@@ -148,9 +148,6 @@ export abstract class ControlWithPropertiesAbstract
             console.error(`${this._instanceName} _registerEvent();`, response.error);
             return false;
         }
-        if (response.result.ver !== this._protocol.version) {
-            console.warn(`${this._instanceName} _registerEvent(); version mismatch!`);
-        }
 
         return true;
     }
