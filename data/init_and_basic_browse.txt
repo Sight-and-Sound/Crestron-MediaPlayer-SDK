@@ -256,6 +256,8 @@ EVERYTHING BELOW SEEMS ASYNC
 <<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"Title":"Internet Radio","Subtitle":"","Level":2,"ItemCnt":8,"MaxReqItems":100,"Sorted":"none","ListItemIcons":true,"IsMenuAvailable":true}},"id":24958}
 
 >>> {"id":93933,"params":{"propName":"ElapsedSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
+<<< {"jsonrpc":"2.0","result":{"ElapsedSec":9},"error":null,"id":93933}
+
 <<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"ListSpecificFunctions":["BackToTop","Favorites","Create"]}},"id":24959}
 
 >>> {"id":93934,"params":{"propName":"TrackSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}
@@ -264,7 +266,7 @@ EVERYTHING BELOW SEEMS ASYNC
 <<< {"jsonrpc":"2.0","method":"MediaPlayerMenu1.Event","params":{"ev":"BusyChanged","handle":"sg","parameters":{"on":false,"timeoutSec":10}},"id":24960}
 
 >>> {"id":93935,"params":{"count":8,"item":1},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetData"}
-<<< {"jsonrpc":"2.0","result":{"ElapsedSec":9},"error":null,"id":93933}
+<<< {"jsonrpc":"2.0","result":[{"L1":"History","L2":"","URL":"","URLNAT":"","Id":"airable.radios.history"},{"L1":"Recommendations","L2":"","URL":"","URLNAT":"","Id":"airable.radios.recommendations"},{"L1":"Local stations","L2":"","URL":"","URLNAT":"","Id":"airable.radios.local"},{"L1":"Popular stations","L2":"","URL":"","URLNAT":"","Id":"airable.radios.popular"},{"L1":"Trending","L2":"","URL":"","URLNAT":"","Id":"airable.radios.trending"},{"L1":"High Resolution","L2":"","URL":"","URLNAT":"","Id":"airable.radios.hq"},{"L1":"Filter","L2":"","URL":"","URLNAT":"","Id":"airable.radios.filter"},{"L1":"Search","L2":"","URL":"","URLNAT":"","Id":"airable.radios.search"}],"error":null,"id":93935}
 
 >>> {"id":93936,"params":{"propName":"ListSpecificFunctions"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
 <<< {"jsonrpc":"2.0","result":{"ListSpecificFunctions":["BackToTop","Favorites","Create"]},"error":null,"id":93936}
@@ -272,7 +274,7 @@ EVERYTHING BELOW SEEMS ASYNC
 >>> {"id":93937,"params":{"propName":"TransactionId"},"jsonrpc":"2.0","method":"MediaPlayerMenu1.GetProperty"}
 <<< {"jsonrpc":"2.0","error":{"code":-32001,"message":"property not found","data":null},"id":93937}
 
-<<< {"jsonrpc":"2.0","result":[{"L1":"History","L2":"","URL":"","URLNAT":"","Id":"airable.radios.history"},{"L1":"Recommendations","L2":"","URL":"","URLNAT":"","Id":"airable.radios.recommendations"},{"L1":"Local stations","L2":"","URL":"","URLNAT":"","Id":"airable.radios.local"},{"L1":"Popular stations","L2":"","URL":"","URLNAT":"","Id":"airable.radios.popular"},{"L1":"Trending","L2":"","URL":"","URLNAT":"","Id":"airable.radios.trending"},{"L1":"High Resolution","L2":"","URL":"","URLNAT":"","Id":"airable.radios.hq"},{"L1":"Filter","L2":"","URL":"","URLNAT":"","Id":"airable.radios.filter"},{"L1":"Search","L2":"","URL":"","URLNAT":"","Id":"airable.radios.search"}],"error":null,"id":93935}
+
 <<< {"jsonrpc":"2.0","method":"MediaPlayer1.Event","params":{"ev":"StateChanged","handle":"sg","parameters":{"ActionsAvailable":["GetMenu","StatusMsgResponse","VolumeUp","VolumeDown","VolumeControl","ProgressInfo","Loop","Pause"]}},"id":24961}
 
 >>> {"id":93938,"params":{"propName":"ElapsedSec"},"jsonrpc":"2.0","method":"MediaPlayer1.GetProperty"}

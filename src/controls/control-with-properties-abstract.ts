@@ -20,10 +20,17 @@ import { EventName as PlayerEventName } from '../protocol/player/event-name';
 import { StatusMsgChanged } from '../protocol/player/event/status-msg-changed';
 import { DeferredRejectionMessage } from '../util/deferred/deferred-rejection-message';
 
+export enum PropertyUpdateType
+{
+    VALUE_CHANGE,
+    VALUE_RECEIVE,
+}
+
 export abstract class ControlWithPropertiesAbstract
 {
     protected _propertySubjects: { [propertyName: string]: Subject<any> } = {};
     protected _propertyValues: { [propertyName: string]: any } = {};
+    protected _propertyUpdateType: { [propertyName: string]: PropertyUpdateType } = {};
     protected _busyTimeout?: any;
 
     public busy$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -77,14 +84,20 @@ export abstract class ControlWithPropertiesAbstract
     protected _createPropertySubject<T>(
         propertyName: string,
         defaultValue: T,
+        updateType: PropertyUpdateType = PropertyUpdateType.VALUE_CHANGE,
+        additionalConnectorMethod?: () => void
     ): Observable<T>
     {
         this._propertySubjects[propertyName] = new BehaviorSubject<T>(defaultValue);
+        this._propertyUpdateType[propertyName] = updateType;
         return this._propertySubjects[propertyName].pipe(
             share({
                 connector: () =>
                 {
                     this._getProperty(propertyName);
+                    if (additionalConnectorMethod) {
+                        additionalConnectorMethod();
+                    }
                     return new ReplaySubject<T>(1);
                 },
                 resetOnRefCountZero: true,
@@ -99,8 +112,11 @@ export abstract class ControlWithPropertiesAbstract
             return;
         }
 
-        // Value did not change, no update necessary
-        if (this._propertyValues === value) {
+        // If value did not change and update type is VALUE_CHANGE we don't notify the subjects.
+        if (
+            this._propertyUpdateType[propertyName] === PropertyUpdateType.VALUE_CHANGE
+         && this._propertyValues === value
+        ) {
             return;
         }
 

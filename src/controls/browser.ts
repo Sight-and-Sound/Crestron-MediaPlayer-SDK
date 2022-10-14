@@ -5,10 +5,16 @@ import { Property } from '../protocol/browser/property';
 import { CrpcProtocol } from '../protocol/crpc';
 import { BusyChanged } from '../protocol/event/busy-changed';
 import { StateChanged } from '../protocol/event/state-changed';
-import { ControlWithPropertiesAbstract } from './control-with-properties-abstract';
+import { ControlWithPropertiesAbstract, PropertyUpdateType } from './control-with-properties-abstract';
+import { CrpcListItem, ListItem } from './list-item';
+import { GetData } from '../protocol/browser/packet/get-data';
+import { Back } from '../protocol/browser/packet/back';
+import { Select } from '../protocol/browser/packet/select';
 
 export class CrpcBrowser extends ControlWithPropertiesAbstract
 {
+    private _automaticListItemRetrievalEnabled: boolean = false;
+
     public version$: Observable<number> = this._createPropertySubject<number>(
         'Version',
         0,
@@ -24,6 +30,7 @@ export class CrpcBrowser extends ControlWithPropertiesAbstract
     public itemCnt$: Observable<number> = this._createPropertySubject<number>(
         'ItemCnt',
         0,
+        PropertyUpdateType.VALUE_RECEIVE
     );
     public title$: Observable<string> = this._createPropertySubject<string>(
         'Title',
@@ -48,6 +55,12 @@ export class CrpcBrowser extends ControlWithPropertiesAbstract
     public instance$: Observable<number> = this._createPropertySubject<number>(
         'Instance',
         0,
+    );
+    public items$: Observable<ListItem[]> = this._createPropertySubject<ListItem[]>(
+        'ListItems',
+        [],
+        PropertyUpdateType.VALUE_CHANGE,
+        () => this._enableAutomaticListRetrieval()
     );
 
     constructor(
@@ -103,5 +116,38 @@ export class CrpcBrowser extends ControlWithPropertiesAbstract
                 );
                 break;
         }
+    }
+
+    private _enableAutomaticListRetrieval(): void
+    {
+        this.itemCnt$.subscribe({
+            next: async (itemCount: number) => {
+                const response = await this._protocol.send(
+                    new GetData(this._instanceName, itemCount)
+                ).catch((e) => console.error('Failed to retrieve browser list items!', e));
+
+                ((response.result || []) as CrpcListItem[]).map((rawItem, index) => {
+                    return ListItem.fromCrpc(
+                        rawItem,
+                        (index + 1),
+                        () => this._selectItemByIndex(index + 1)
+                    );
+                })
+            }
+        })
+    }
+
+    private _selectItemByIndex(index: number): void
+    {
+        this._protocol.send(
+            new Select(this._instanceName, index)
+        );
+    }
+
+    public back(): void
+    {
+        this._protocol.send(
+            new Back(this._instanceName)
+        );
     }
 }
