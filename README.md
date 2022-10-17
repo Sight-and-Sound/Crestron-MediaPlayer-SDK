@@ -28,13 +28,27 @@ await container.initialize();
 if (container.browser) {
     // Initialize browser before using it!
     container.browser.initialize();
-    
+
     container.browser.title$.subscribe({
         next: (title: string) => console.log(`Received title: ${title}`),
     });
-    
+
     container.browser.items$.subscribe({
-        next: (items: ListItem[]) => console.log('Received browsable items: ', items),
+        next: (items: ListItem[]) => {
+            console.log('Received browsable items: ', items)
+            
+            // Select item
+            items[0].select()
+        },
+    });
+
+    container.browser.functions$.subscribe({
+        next: (listFunctions: ListFunction[]) => {
+            console.log('Received executable functions', listFunctions);
+            
+            // Execute function
+            listFunctions[0].execute()
+        }
     });
 }
 

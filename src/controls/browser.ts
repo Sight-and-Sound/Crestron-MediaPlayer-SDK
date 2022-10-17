@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs';
 import { EventName } from '../protocol/browser/event-name';
 import { StatusMsgMenuChanged } from '../protocol/browser/event/status-msg-menu-changed';
-import { Property } from '../protocol/browser/property';
 import { CrpcProtocol } from '../protocol/crpc';
 import { BusyChanged } from '../protocol/event/busy-changed';
 import { StateChanged } from '../protocol/event/state-changed';
@@ -10,6 +9,9 @@ import { CrpcListItem, ListItem } from './list-item';
 import { GetData } from '../protocol/browser/packet/get-data';
 import { Back } from '../protocol/browser/packet/back';
 import { Select } from '../protocol/browser/packet/select';
+import { ListFunction } from './list-function';
+import { Send } from '../protocol/browser/packet/send';
+import { MethodName } from '../protocol/browser/method-name';
 
 export class CrpcBrowser extends ControlWithPropertiesAbstract
 {
@@ -56,11 +58,18 @@ export class CrpcBrowser extends ControlWithPropertiesAbstract
         'Instance',
         0,
     );
+
     public items$: Observable<ListItem[]> = this._createPropertySubject<ListItem[]>(
         'ListItems',
         [],
         PropertyUpdateType.VALUE_CHANGE,
         () => this._enableAutomaticListRetrieval()
+    );
+    public functions$: Observable<ListFunction[]> = this._createPropertySubject<ListFunction[]>(
+        'ListFunctions',
+        [],
+        PropertyUpdateType.VALUE_CHANGE,
+        () => this._enableAutomaticListSpecificFunctions()
     );
 
     constructor(
@@ -138,6 +147,32 @@ export class CrpcBrowser extends ControlWithPropertiesAbstract
                 this._updateLocalProperty('ListItems', items);
             }
         })
+    }
+
+    private _enableAutomaticListSpecificFunctions(): void
+    {
+        this.listSpecificFunctions$.subscribe({
+            next: async (functions: string[]) => {
+                if (functions?.length === 0) {
+                    this._updateLocalProperty('ListFunctions', []);
+                    return;
+                }
+
+                const items = functions.map((listFunction) => new ListFunction(
+                    listFunction, () => this._executeListSpecificFunction(listFunction)
+                ));
+                this._updateLocalProperty('ListFunctions', items);
+            }
+        })
+    }
+
+    private _executeListSpecificFunction(name: string): void
+    {
+        this._protocol.send(
+            Object.assign(new Send(this._instanceName), {
+                method: name as MethodName
+            })
+        );
     }
 
     private _selectItemByIndex(index: number): void
