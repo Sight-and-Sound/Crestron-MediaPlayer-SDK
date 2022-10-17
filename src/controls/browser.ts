@@ -90,9 +90,6 @@ export class CrpcBrowser extends ControlWithPropertiesAbstract
         this._registerEvent(EventName.StatusMsgMenuChanged).catch((e) =>
             console.error('Register StatusMsgMenuChanged failed.', e),
         );
-        this._getProperty(Property.PropertiesSupported).catch((e) =>
-            console.error('Get PropertiesSupported failed.', e),
-        );
     }
 
     protected _handleEvent(event: string, properties: any)
