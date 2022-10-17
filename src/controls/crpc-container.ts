@@ -141,9 +141,6 @@ export class CrpcContainer
             console.error('registerEvent(); ', response.error);
             return false;
         }
-        if (response.result.ver !== this._protocol.version) {
-            console.warn('registerEvent(); version mismatch!');
-        }
 
         return true;
     }
