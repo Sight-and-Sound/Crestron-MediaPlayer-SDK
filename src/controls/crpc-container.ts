@@ -49,7 +49,7 @@ export class CrpcContainer
 
     private async register(): Promise<void>
     {
-        await this._protocol.send(new Register(this._uuid, this._protocol.version));
+        await this._protocol.send(new Register(this._uuid, false, this._protocol.version));
     }
 
     private async _getObjects(): Promise<void>
@@ -73,7 +73,7 @@ export class CrpcContainer
                     this._protocol,
                 );
             }
-            if (obj.isMenu()) {
+            if (obj.isMenu() && obj.uuid === this._uuid) {
                 this.browser = new CrpcBrowser(
                     this._handle,
                     obj.uuid,

@@ -14,14 +14,14 @@ export class Register extends GenericSend
         name: string;
     };
 
-    constructor(uuid: string, version: string = '1.0')
+    constructor(uuid: string, direct: boolean = false, version: string = '1.0')
     {
         super();
         this.body = {
             uuid,
             ver: version,
             maxPacketSize: 65535,
-            type: 'symbol/json-rpc',
+            type: direct ? 'cip-direct/json-rpc' : 'symbol/json-rpc',
             encoding: 'UTF-8',
             format: 'JSON',
             name: 'MediaPlayer=1',

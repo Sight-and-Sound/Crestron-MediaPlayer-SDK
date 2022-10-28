@@ -5,5 +5,6 @@ import { MethodName as PlayerMethodName } from '../player/method-name';
 export abstract class GenericSend
 {
     method!: MethodName | BrowserMethodName | PlayerMethodName;
+    instanceName?: string;
     body: any = null;
 }

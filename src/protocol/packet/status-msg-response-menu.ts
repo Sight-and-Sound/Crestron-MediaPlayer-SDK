@@ -13,7 +13,7 @@ export class StatusMsgResponseMenu extends GenericSend
     };
 
     constructor(
-        instanceName: string,
+        public instanceName: string,
         itemNumber: number,
         input?: string | boolean | number,
     )

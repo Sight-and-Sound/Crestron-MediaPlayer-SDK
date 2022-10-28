@@ -154,10 +154,6 @@ export class CrpcProtocol
 
     public send(packet: GenericSend): Promise<any>
     {
-        if (packet instanceof BrowserSend || packet instanceof PlayerSend) {
-            return this.sendRaw(packet.instanceName, packet.method, packet.body);
-        }
-
-        return this.sendRaw('Crpc', packet.method, packet.body);
+        return this.sendRaw(packet.instanceName || 'Crpc', packet.method, packet.body);
     }
 }
