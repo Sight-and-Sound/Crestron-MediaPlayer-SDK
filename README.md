@@ -8,9 +8,9 @@ in the future make integrations with the CRPC streams easy.
 ## NOT READY FOR USE YET
 
 #### TODO
-- [] Add service selection to automatically skip the main menu in the Browser.
-- [] Add search method which browses and inserts search query in the background with category selection like Artist, Track etc.
-- [] Create icon/art replacement/injection based on Level/Service and item Name, for example show icons for Tidal top categories as they would in the tidal app.
+- [ ] Add service selection to automatically skip the main menu in the Browser.
+- [ ] Add search method which browses and inserts search query in the background with category selection like Artist, Track etc.
+- [ ] Create icon/art replacement/injection based on Level/Service and item Name, for example show icons for Tidal top categories as they would in the tidal app.
 
 ```typescript
 const container = new CrpcContainer('5db35e97-a379-46e4-ac32-6b16d5ed6d3e');
