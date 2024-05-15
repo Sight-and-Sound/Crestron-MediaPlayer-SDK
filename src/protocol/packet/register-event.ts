@@ -12,13 +12,12 @@ export class RegisterEvent extends GenericSend
     constructor(
         handle: string,
         event: EventName | BrowserEventName | PlayerEventName,
-        instanceName?: string,
+        public instanceName: string = 'Crpc',
     )
     {
         super();
         this.body = {
             handle,
-            instanceName,
             ev: event
         };
     }
