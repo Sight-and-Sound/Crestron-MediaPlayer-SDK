@@ -55,6 +55,29 @@ if (container.browser) {
             listFunctions[0].execute()
         }
     });
+
+    container.browser.dialog$.subscribe((data) => {
+        if (!data.show) {
+            // Hide your dialog implementation here.
+            return;
+        }
+
+        if (data.userInputRequired === 'confirmation') {
+            // Show confirm dialog
+            // data.text contains a description for the prompt
+            // data.textForItems is an array with names for the available actions (usually 0 = text for confirm button and 1 = text for cancel)
+            // data.close(1, true); // confirm
+            // data.close(2, true); // cancel
+            return;
+        }
+
+        // If not confirm, show prompt dialog
+        // data.text contains a description for the prompt
+        // data.initialUserInput is a previously set value.
+        // data.textForItems is an array with names for the available actions (usually 0 = text for confirm button and 1 = text for cancel)
+        // data.close(1, 'your prompt value goes here'); // submit
+        // data.close(2, ''); // cancel
+    });
 }
 
 // Getting now playing lines
